@@ -1,0 +1,7 @@
+{
+  "nome": "Squirtle",
+  "tipo": "Água",
+  "nivel": 15,
+  "peso": 9.0,
+  "dataDaCaptura": "2025-08-02"
+}

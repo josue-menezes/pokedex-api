@@ -1,0 +1,7 @@
+{
+  "nome": "Wartortle",
+  "tipo": "Água",
+  "nivel": 32,
+  "peso": 22.5,
+  "dataDaCaptura": "2025-08-02"
+}

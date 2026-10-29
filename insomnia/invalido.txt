@@ -1,0 +1,7 @@
+{
+  "nome": "",
+  "tipo": "Fantasma",
+  "nivel": 150,
+  "peso": -2,
+  "dataDaCaptura": "2099-01-01"
+}

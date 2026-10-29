@@ -1,0 +1,129 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_source": "insomnia.desktop.app:v10",
+  "resources": [
+    {
+      "_id": "wrk_pokedex",
+      "_type": "workspace",
+      "name": "API Pokedex",
+      "scope": "collection",
+      "parentId": null
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "parentId": "wrk_pokedex",
+      "name": "Base Environment",
+      "data": {}
+    },
+    {
+      "_id": "env_local",
+      "_type": "environment",
+      "parentId": "env_base",
+      "name": "Local",
+      "data": {
+        "base_url": "http://localhost:8080"
+      }
+    },
+    {
+      "_id": "env_deploy",
+      "_type": "environment",
+      "parentId": "env_base",
+      "name": "Deploy",
+      "data": {
+        "base_url": "https://SEU-DEPLOY.onrender.com"
+      }
+    },
+    {
+      "_id": "req_0",
+      "_type": "request",
+      "parentId": "wrk_pokedex",
+      "name": "findAll",
+      "method": "GET",
+      "url": "{{ _.base_url }}/pokedex",
+      "metaSortKey": 0,
+      "body": {},
+      "headers": []
+    },
+    {
+      "_id": "req_1",
+      "_type": "request",
+      "parentId": "wrk_pokedex",
+      "name": "findByCodigo",
+      "method": "GET",
+      "url": "{{ _.base_url }}/pokedex/1",
+      "metaSortKey": 1,
+      "body": {},
+      "headers": []
+    },
+    {
+      "_id": "req_2",
+      "_type": "request",
+      "parentId": "wrk_pokedex",
+      "name": "save",
+      "method": "POST",
+      "url": "{{ _.base_url }}/pokedex",
+      "metaSortKey": 2,
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Squirtle\",\n  \"tipo\": \"Água\",\n  \"nivel\": 15,\n  \"peso\": 9.0,\n  \"dataDaCaptura\": \"2025-08-02\"\n}\n"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_3",
+      "_type": "request",
+      "parentId": "wrk_pokedex",
+      "name": "update",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/pokedex/1",
+      "metaSortKey": 3,
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"Wartortle\",\n  \"tipo\": \"Água\",\n  \"nivel\": 32,\n  \"peso\": 22.5,\n  \"dataDaCaptura\": \"2025-08-02\"\n}\n"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_4",
+      "_type": "request",
+      "parentId": "wrk_pokedex",
+      "name": "delete",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/pokedex/1",
+      "metaSortKey": 4,
+      "body": {},
+      "headers": []
+    },
+    {
+      "_id": "req_5",
+      "_type": "request",
+      "parentId": "wrk_pokedex",
+      "name": "save (inválido - Bean Validation)",
+      "method": "POST",
+      "url": "{{ _.base_url }}/pokedex",
+      "metaSortKey": 5,
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome\": \"\",\n  \"tipo\": \"Fantasma\",\n  \"nivel\": 150,\n  \"peso\": -2,\n  \"dataDaCaptura\": \"2099-01-01\"\n}\n"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    }
+  ]
+}
