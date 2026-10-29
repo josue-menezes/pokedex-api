@@ -5,7 +5,6 @@ import br.com.fiap.to.PokemonTO;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +18,6 @@ import java.util.ArrayList;
 
 @RestController
 @RequestMapping("/pokedex")
-@CrossOrigin(origins = "*") // permite chamar a API de um front-end
 public class PokemonResource {
 
     private final PokemonBO pokemonBO = new PokemonBO();

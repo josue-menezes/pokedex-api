@@ -6,17 +6,12 @@ import java.sql.SQLException;
 
 /**
  * Fábrica de conexões com o Oracle (padrões Factory e Singleton).
- * Usuário e senha vêm de variáveis de ambiente (DB_USER e DB_PASSWORD),
- * assim a senha não fica exposta no GitHub e o deploy consegue configurá-las.
+ * As credenciais vêm de variáveis de ambiente (DB_URL, DB_USER e DB_PASSWORD):
+ * a senha não fica salva no código (nem no GitHub) e o Render consegue configurá-las.
  */
 public class ConnectionFactory {
 
     private static Connection connection;
-
-    private static String env(String nome, String padrao) {
-        String valor = System.getenv(nome);
-        return (valor == null || valor.isBlank()) ? padrao : valor;
-    }
 
     public static void closeConnection() {
         try {
@@ -34,9 +29,21 @@ public class ConnectionFactory {
                 return connection;
             }
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            String url = env("DB_URL", "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL");
-            String user = env("DB_USER", "seu usuário");
-            String password = env("DB_PASSWORD", "sua senha");
+
+            // Busca dados de conexão nas variáveis de ambiente
+            String url = System.getenv("DB_URL");
+            String user = System.getenv("DB_USER");
+            String password = System.getenv("DB_PASSWORD");
+
+            // Se DB_URL não foi definida, usa o servidor Oracle da FIAP
+            if (url == null || url.isBlank()) {
+                url = "jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL";
+            }
+
+            if (user == null || password == null) {
+                throw new RuntimeException("Variáveis de ambiente do banco não configuradas!");
+            }
+
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             System.out.println("Erro de SQL: " + e.getMessage());
