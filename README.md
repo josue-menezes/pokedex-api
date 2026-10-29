@@ -11,7 +11,7 @@ resource (PokemonResource)  →  bo (PokemonBO)  →  dao (PokemonDAO + Connecti
 
 ## 🔗 Deploy
 
-**URL da API:** `https://SEU-DEPLOY.onrender.com/pokedex`
+**URL da API:** `https://pokedex-api-pepl.onrender.com/pokedex`
 
 ## Endpoints
 

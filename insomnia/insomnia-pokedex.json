@@ -32,7 +32,7 @@
       "parentId": "env_base",
       "name": "Deploy",
       "data": {
-        "base_url": "https://SEU-DEPLOY.onrender.com"
+        "base_url": "https://pokedex-api-pepl.onrender.com"
       }
     },
     {
